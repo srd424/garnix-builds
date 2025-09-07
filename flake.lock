@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "gpiod-dbus": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1752601734,
+        "narHash": "sha256-NMs9rGUzJlU2/6+t4uCc5rHNmUMr08Pojb7P2aTV0MY=",
+        "ref": "refs/heads/master",
+        "rev": "bf1b8643765b86e4d24a5023531e317e2107b6b5",
+        "revCount": 5,
+        "type": "git",
+        "url": "https://codeberg.org/srd424/libgpiod-nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/srd424/libgpiod-nix.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1757020766,
@@ -34,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "gpiod-dbus": "gpiod-dbus",
         "nixpkgs": "nixpkgs",
         "nixpkgs2305": "nixpkgs2305",
         "tgt-glfs": "tgt-glfs"

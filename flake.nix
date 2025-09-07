@@ -8,13 +8,18 @@
       url = "git+https://codeberg.org/srd424/tgt-glfs-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gpiod-dbus = {
+      url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs }: let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
 
     in {
+      packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
+
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
 
       packages.x86_64-linux.gnucash54 =
@@ -35,7 +40,7 @@
             --subst-var-by gsettings_schema_dir ${pkgs2305.glib.makeSchemaPath "$out" "gnucash-${prevAttrs.version}"};
           '';
         });
-      packages.x86_64-linux.gnucash54-pymodule = pkgs.python3Packages.toPythonModule self.packages.x86_64-linux.gnucash54;
+      packages.x86_64-linux.gnucash54-pymodule = pkgs2305.python3Packages.toPythonModule self.packages.x86_64-linux.gnucash54;
   };
 }
 
