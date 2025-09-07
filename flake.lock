@@ -57,7 +57,29 @@
         "gpiod-dbus": "gpiod-dbus",
         "nixpkgs": "nixpkgs",
         "nixpkgs2305": "nixpkgs2305",
+        "sboot-srvr": "sboot-srvr",
         "tgt-glfs": "tgt-glfs"
+      }
+    },
+    "sboot-srvr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750182942,
+        "narHash": "sha256-L9I+EW0+73zWkKgrN2tP4nuereW7xakdsAZEDXJTQRw=",
+        "ref": "hydra-notls",
+        "rev": "2bdc70837dc0df39217ef5af00b4004d9d0ecf0b",
+        "revCount": 107,
+        "type": "git",
+        "url": "https://codeberg.org/srd424/snowboot-server.git"
+      },
+      "original": {
+        "ref": "hydra-notls",
+        "type": "git",
+        "url": "https://codeberg.org/srd424/snowboot-server.git"
       }
     },
     "tgt-glfs": {

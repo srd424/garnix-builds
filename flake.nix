@@ -12,13 +12,19 @@
       url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sboot-srvr = {
+      url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus }: let
+  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus, sboot-srvr }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
 
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
+
+      packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
 
