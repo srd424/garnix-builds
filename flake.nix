@@ -16,9 +16,13 @@
       url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sys-mgr = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus, sboot-srvr }: let
+  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
 
     in {
@@ -27,6 +31,8 @@
       packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
+
+      packages.x86_64-linux.system-manager = sys-mgr.packages.x86_64-linux.default;
 
       packages.x86_64-linux.gnucash54 =
         pkgs2305.gnucash.overrideAttrs (prevAttrs: {

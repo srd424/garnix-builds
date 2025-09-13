@@ -58,6 +58,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs2305": "nixpkgs2305",
         "sboot-srvr": "sboot-srvr",
+        "sys-mgr": "sys-mgr",
         "tgt-glfs": "tgt-glfs"
       }
     },
@@ -80,6 +81,26 @@
         "ref": "hydra-notls",
         "type": "git",
         "url": "https://codeberg.org/srd424/snowboot-server.git"
+      }
+    },
+    "sys-mgr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756281415,
+        "narHash": "sha256-CjpoVwpJJ+DOZilPrDpZ5S3V+B1Y0calaHxTp2xMvGs=",
+        "owner": "numtide",
+        "repo": "system-manager",
+        "rev": "e271eedac9a24678ca6cfc61677837422bf474e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "system-manager",
+        "type": "github"
       }
     },
     "tgt-glfs": {
