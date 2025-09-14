@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757864658,
-        "narHash": "sha256-lM1zY0Mnwt/OvKIg7OcjHskzmfRQ09u5/lgmKFir5uY=",
+        "lastModified": 1757864912,
+        "narHash": "sha256-7IsCxINSVGO8nFOFyxr5kU2a1CVApQ4MX3h/6WdL1cs=",
         "ref": "refs/heads/master",
-        "rev": "9793e690ddaa0cc4c997fb84c0a6b4efec4fc5b4",
-        "revCount": 2,
+        "rev": "ae492d5ba62496c42c1b5f88456b29f39fdf8396",
+        "revCount": 3,
         "type": "git",
         "url": "https://codeberg.org/srd424/tgt-glfs-nix.git"
       },
