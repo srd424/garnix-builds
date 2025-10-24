@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
     tgt-glfs = {
       url = "git+https://codeberg.org/srd424/tgt-glfs-nix.git";
@@ -22,8 +23,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2305, tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr }: let
+  outputs = { self, nixpkgs, nixpkgs2305, nixpkgs-unstable,
+                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
+      unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
 
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
@@ -53,6 +56,17 @@
           '';
         });
       packages.x86_64-linux.gnucash54-pymodule = pkgs2305.python3Packages.toPythonModule self.packages.x86_64-linux.gnucash54;
+
+      packages.x86_64-linux.arcanechat-tui =
+        unstable.arcanechat-tui.overrideAttrs (prevAttrs: {
+          version = "0.11.2";
+          src = unstable.fetchFromGitHub {
+            owner = "ArcaneChat";
+            repo = "arcanechat-tui";
+            rev = "9618940621907b5ea1a70dece5b5f6aa385dc310";
+            hash = "sha256-hwggqPuNBR+ENSdHos1326g8TZRjzVNi8tl64JrrKrE=";
+          };
+        });
   };
 }
 
