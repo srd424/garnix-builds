@@ -26,6 +26,7 @@ buildGoModule {
     homepage = "https://github.com/lxc/incus-os";
     description = "IncusOS image flasher tool";
     license = licenses.asl20;
+    mainProgram = "flasher-tool";
 #    maintainers = with maintainers; [ ironicbadger ];
   };
 }
