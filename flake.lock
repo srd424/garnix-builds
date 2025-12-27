@@ -3,7 +3,7 @@
     "gpiod-dbus": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs2505"
         ]
       },
       "locked": {
@@ -18,38 +18,6 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/srd424/libgpiod-nix.git"
-      }
-    },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1757020766,
-        "narHash": "sha256-PLoSjHRa2bUbi1x9HoXgTx2AiuzNXs54c8omhadyvp0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "fe83bbdde2ccdc2cb9573aa846abe8363f79a97a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-unstable": {
-      "locked": {
-        "lastModified": 1761114652,
-        "narHash": "sha256-f/QCJM/YhrV/lavyCVz8iU3rlZun6d+dAiC3H+CDle4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "01f116e4df6a15f4ccdffb1bcd41096869fb385c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "nixpkgs2305": {
@@ -68,12 +36,44 @@
         "type": "github"
       }
     },
+    "nixpkgs2505": {
+      "locked": {
+        "lastModified": 1766687554,
+        "narHash": "sha256-DegN7KD/EtFSKXf2jvqL6lvev6GlfAAatYBcRC8goEo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fd0ca39c92fdb4012ed8d60e1683c26fddadd136",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs2511": {
+      "locked": {
+        "lastModified": 1766736597,
+        "narHash": "sha256-BASnpCLodmgiVn0M1MU2Pqyoz0aHwar/0qLkp7CjvSQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f560ccec6b1116b22e6ed15f4c510997d99d5852",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "gpiod-dbus": "gpiod-dbus",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
         "nixpkgs2305": "nixpkgs2305",
+        "nixpkgs2505": "nixpkgs2505",
+        "nixpkgs2511": "nixpkgs2511",
         "sboot-srvr": "sboot-srvr",
         "sys-mgr": "sys-mgr",
         "tgt-glfs": "tgt-glfs"
@@ -82,7 +82,7 @@
     "sboot-srvr": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs2505"
         ]
       },
       "locked": {
@@ -103,7 +103,7 @@
     "sys-mgr": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs2505"
         ]
       },
       "locked": {
@@ -123,7 +123,7 @@
     "tgt-glfs": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs2505"
         ]
       },
       "locked": {
