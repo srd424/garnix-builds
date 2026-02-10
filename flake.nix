@@ -21,10 +21,14 @@
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs2505";
     };
+    ufi-forgejo = {
+      url = "git+https://codeberg.org/srd424/update-flake-inputs-forgejo.git";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511,
-                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr, ... }: let
+                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr, ufi-forgejo, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
 
@@ -32,6 +36,8 @@
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
 
       packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
+
+      packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
 
