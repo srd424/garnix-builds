@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "forgejo-runner-fix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs2511"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770927873,
+        "narHash": "sha256-jB/z8rt0pTQhvo+iiPkBLFxk6SFWR/8+fpXwcc/3qWk=",
+        "ref": "refs/heads/master",
+        "rev": "67caf9f4bd2ba9f242c1401d88e831b0c0e106c6",
+        "revCount": 1,
+        "type": "git",
+        "url": "https://codeberg.org/srd424/forgejo-runner-fix"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/srd424/forgejo-runner-fix"
+      }
+    },
     "gpiod-dbus": {
       "inputs": {
         "nixpkgs": [
@@ -70,6 +90,7 @@
     },
     "root": {
       "inputs": {
+        "forgejo-runner-fix": "forgejo-runner-fix",
         "gpiod-dbus": "gpiod-dbus",
         "nixpkgs2305": "nixpkgs2305",
         "nixpkgs2505": "nixpkgs2505",
