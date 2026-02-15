@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771018571,
-        "narHash": "sha256-u6NABBT5+bqRdT30O402sK37mDor2JsSEz/2HWFFhFQ=",
+        "lastModified": 1771181727,
+        "narHash": "sha256-dwCq+B5rRNpg1csXdv6g0QxASysD37J3AGNwCgo93vY=",
         "ref": "refs/heads/master",
-        "rev": "a96096deada0dbcda2a0cbca2b5ec948bbc98914",
-        "revCount": 3,
+        "rev": "80e4ce2f5c272fa45ad00fc741303e0bca586750",
+        "revCount": 4,
         "type": "git",
         "url": "https://codeberg.org/srd424/forgejo-runner-fix"
       },
