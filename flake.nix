@@ -29,10 +29,15 @@
       url = "git+https://codeberg.org/srd424/update-flake-inputs-forgejo.git";
       flake = false;
     };
+    ssh-agent-switcher = {
+      url = "github:jmmv/ssh-agent-switcher?rev=9cf67475a143b70b5f5076eb1d3747cbac10220b";
+      inputs.nixpkgs.follows = "nixpkgs2511";
+    };
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
-                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr, ufi-forgejo, ... }: let
+                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr, ufi-forgejo,
+                ssh-agent-switcher,  ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
 
@@ -44,6 +49,8 @@
       packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
+
+      packages.x86_64-linux.ssh-agent-switcher = ssh-agent-switcher.packages.x86_64-linux.default;
 
       packages.x86_64-linux.forgejo-runner = forgejo-runner-fix.packages.x86_64-linux.default;
 
