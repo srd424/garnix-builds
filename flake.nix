@@ -92,7 +92,22 @@
       packages.aarch64-linux.incusos-flasher =
         nixpkgs2511.legacyPackages.aarch64-linux.callPackage ./incusos-flasher.nix {};
 
-
+      hydraJobs =
+        let
+          packages = self.outputs.packages;
+        in {
+          libgpiod = packages.aarch64-linux.libgpiod;
+          snowboot = packages.x86_64-linux.snowboot;
+          update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
+          tgt-glfs = packages.x86_64-linux.tgt-glfs;
+          ssh-agent-switcher = packages.x86_64-linux.ssh-agent-switcher;
+          forgejo-runner = packages.x86_64-linux.forgejo-runner;
+          system-manager = packages.x86_64-linux.system-manager;
+          gnucash54 = packages.x86_64-linux.gnucash54;
+          gnucash54-pymodule = packages.x86_64-linux.gnucash54-pymodule;
+          arcanechat-tui = packages.x86_64-linux.arcanechat-tui;
+          incusos-flasher = packages.x86_64-linux.incusos-flasher;
+        };
   };
 }
 
