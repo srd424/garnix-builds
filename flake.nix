@@ -93,7 +93,8 @@
         let
           packages = self.outputs.packages;
         in {
-          libgpiod = packages.aarch64-linux.libgpiod;
+          libgpiod-x64 = packages.x86_64-linux.libgpiod;
+          # TODO: build arm version one day
           snowboot = packages.x86_64-linux.snowboot;
           update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
