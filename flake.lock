@@ -256,7 +256,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "nixpkgs": [
-          "nixpkgs2505"
+          "nixpkgs2511"
         ],
         "userborn": "userborn"
       },

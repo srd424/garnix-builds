@@ -19,7 +19,7 @@
     };
     sys-mgr = {
       url = "github:numtide/system-manager";
-      inputs.nixpkgs.follows = "nixpkgs2505";
+      inputs.nixpkgs.follows = "nixpkgs2511";
     };
     forgejo-runner-fix = {
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
