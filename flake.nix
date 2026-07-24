@@ -2,25 +2,21 @@
   description = "flake to build various useful packages on garnix";
 
   inputs = {
-    nixpkgs2505.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs2511.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
     tgt-glfs = {
       url = "git+https://codeberg.org/srd424/tgt-glfs-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs2505";
+      inputs.nixpkgs.follows = "nixpkgs2511";
     };
     gpiod-dbus = {
       url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs2505";
+      inputs.nixpkgs.follows = "nixpkgs2511";
     };
     sboot-srvr = {
       url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
-      inputs.nixpkgs.follows = "nixpkgs2505";
-    };
-    sys-mgr = {
-      url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs2511";
     };
+    # sys-mgr is now in nixpkgs
     forgejo-runner-fix = {
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
       inputs.nixpkgs.follows = "nixpkgs2511";
@@ -36,13 +32,14 @@
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
-                tgt-glfs, gpiod-dbus, sboot-srvr, sys-mgr, ufi-forgejo,
+                tgt-glfs, gpiod-dbus, sboot-srvr, ufi-forgejo,
                 ssh-agent-switcher,  ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
 
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
+      packages.x86_64-linux.libgpiod = gpiod-dbus.packages.x86_64-linux.libgpiod;
 
       packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
 
@@ -54,7 +51,7 @@
 
       packages.x86_64-linux.forgejo-runner = forgejo-runner-fix.packages.x86_64-linux.default;
 
-      packages.x86_64-linux.system-manager = sys-mgr.packages.x86_64-linux.default;
+      # packages.x86_64-linux.system-manager is now in nixpkgs
 
       packages.x86_64-linux.gnucash54 =
         pkgs2305.gnucash.overrideAttrs (prevAttrs: {
@@ -102,7 +99,6 @@
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
           ssh-agent-switcher = packages.x86_64-linux.ssh-agent-switcher;
           forgejo-runner = packages.x86_64-linux.forgejo-runner;
-          system-manager = packages.x86_64-linux.system-manager;
           gnucash54 = packages.x86_64-linux.gnucash54;
           gnucash54-pymodule = packages.x86_64-linux.gnucash54-pymodule;
           arcanechat-tui = packages.x86_64-linux.arcanechat-tui;
