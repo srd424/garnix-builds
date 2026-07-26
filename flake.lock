@@ -90,12 +90,29 @@
         "type": "github"
       }
     },
+    "nixpkgs2605": {
+      "locked": {
+        "lastModified": 1784856561,
+        "narHash": "sha256-J+Bx1Z6Oeoj2FgnBhRMKyUhhtDoOpTgXYaVLZpDjW4A=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "597283ad8aa0b331c788e97c4c262d58877074ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "forgejo-runner-fix": "forgejo-runner-fix",
         "gpiod-dbus": "gpiod-dbus",
         "nixpkgs2305": "nixpkgs2305",
         "nixpkgs2511": "nixpkgs2511",
+        "nixpkgs2605": "nixpkgs2605",
         "sboot-srvr": "sboot-srvr",
         "ssh-agent-switcher": "ssh-agent-switcher",
         "tgt-glfs": "tgt-glfs",
@@ -127,7 +144,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs2511"
+          "nixpkgs2605"
         ]
       },
       "locked": {
