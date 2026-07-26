@@ -17,6 +17,11 @@
       url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
       inputs.nixpkgs.follows = "nixpkgs2511";
     };
+    sys-mgr = {
+      url = "github:numtide/system-manager";
+      # don't set nixpkgs input to follow a stable branch, system-manager
+      # does not reliably support this: https://github.com/numtide/system-manager/issues/490
+    };
     # sys-mgr is now in nixpkgs
     forgejo-runner-fix = {
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
@@ -34,7 +39,7 @@
 
   outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
                 tgt-glfs, gpiod-dbus, sboot-srvr, ufi-forgejo,
-                ssh-agent-switcher,  ... }: let
+                ssh-agent-switcher,  sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
 
@@ -53,6 +58,7 @@
       packages.x86_64-linux.forgejo-runner = forgejo-runner-fix.packages.x86_64-linux.default;
 
       # packages.x86_64-linux.system-manager is now in nixpkgs
+      packages.x86_64-linux.system-manager = sys-mgr.packages.x86_64-linux.default;
 
       packages.x86_64-linux.gnucash54 =
         pkgs2305.gnucash.overrideAttrs (prevAttrs: {
@@ -105,6 +111,7 @@
           gnucash54-pymodule = packages.x86_64-linux.gnucash54-pymodule;
           arcanechat-tui = packages.x86_64-linux.arcanechat-tui;
           incusos-flasher = packages.x86_64-linux.incusos-flasher;
+          system-manager = packages.x86_64-linux.system-manager;
         };
   };
 }
