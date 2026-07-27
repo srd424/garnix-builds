@@ -64,7 +64,7 @@
       packages.x86_64-linux.arcanechat-tui =
         pkgs2605.arcanechat-tui.overrideAttrs (prevAttrs: {
           version = "0.11.2";
-          src = pkgs2511.fetchFromGitHub {
+          src = pkgs2605.fetchFromGitHub {
             owner = "ArcaneChat";
             repo = "arcanechat-tui";
             rev = "9618940621907b5ea1a70dece5b5f6aa385dc310";
