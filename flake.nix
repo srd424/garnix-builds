@@ -28,11 +28,12 @@
     };
   };
 
-  outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
-                tgt-glfs, gpiod-dbus, ufi-forgejo,
+  outputs = { self, nixpkgs2305, nixpkgs2511, nixpkgs2605,
+                forgejo-runner-fix, tgt-glfs, gpiod-dbus, ufi-forgejo,
                 sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
+      pkgs2605 = nixpkgs2605.legacyPackages.x86_64-linux;
 
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
@@ -68,7 +69,7 @@
       packages.x86_64-linux.gnucash54-pymodule = pkgs2305.python3Packages.toPythonModule self.packages.x86_64-linux.gnucash54;
 
       packages.x86_64-linux.arcanechat-tui =
-        pkgs2511.arcanechat-tui.overrideAttrs (prevAttrs: {
+        pkgs2605.arcanechat-tui.overrideAttrs (prevAttrs: {
           version = "0.11.2";
           src = pkgs2511.fetchFromGitHub {
             owner = "ArcaneChat";
