@@ -22,15 +22,10 @@
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
       inputs.nixpkgs.follows = "nixpkgs2511";
     };
-    ufi-forgejo = {
-      url = "git+https://codeberg.org/srd424/update-flake-inputs-forgejo.git";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511, nixpkgs2605,
-                forgejo-runner-fix, tgt-glfs, gpiod-dbus, ufi-forgejo,
-                sys-mgr, ... }: let
+                forgejo-runner-fix, tgt-glfs, gpiod-dbus, sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
       pkgs2605 = nixpkgs2605.legacyPackages.x86_64-linux;
@@ -38,8 +33,6 @@
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
       packages.x86_64-linux.libgpiod = gpiod-dbus.packages.x86_64-linux.libgpiod;
-
-      packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
 
@@ -90,7 +83,6 @@
         in {
           libgpiod-x64 = packages.x86_64-linux.libgpiod;
           # TODO: build arm version one day
-          update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
           forgejo-runner = packages.x86_64-linux.forgejo-runner;
           gnucash54 = packages.x86_64-linux.gnucash54;

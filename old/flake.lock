@@ -18,6 +18,22 @@
         "type": "github"
       }
     },
+    "nixpkgs2511": {
+      "locked": {
+        "lastModified": 1782847189,
+        "narHash": "sha256-twXPFqFsrrY5r28Zh7Homgcp2gUMBgQ6WDS98Q/3xFI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b6018f87da91d19d0ab4cf979885689b469cdd41",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs2605": {
       "locked": {
         "lastModified": 1785104993,
@@ -36,8 +52,32 @@
     },
     "root": {
       "inputs": {
+        "nixpkgs2511": "nixpkgs2511",
         "nixpkgs2605": "nixpkgs2605",
-        "ssh-agent-switcher": "ssh-agent-switcher"
+        "sboot-srvr": "sboot-srvr",
+        "ssh-agent-switcher": "ssh-agent-switcher",
+        "ufi-forgejo": "ufi-forgejo"
+      }
+    },
+    "sboot-srvr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs2511"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750182942,
+        "narHash": "sha256-L9I+EW0+73zWkKgrN2tP4nuereW7xakdsAZEDXJTQRw=",
+        "ref": "hydra-notls",
+        "rev": "2bdc70837dc0df39217ef5af00b4004d9d0ecf0b",
+        "revCount": 107,
+        "type": "git",
+        "url": "https://codeberg.org/srd424/snowboot-server.git"
+      },
+      "original": {
+        "ref": "hydra-notls",
+        "type": "git",
+        "url": "https://codeberg.org/srd424/snowboot-server.git"
       }
     },
     "ssh-agent-switcher": {
@@ -75,6 +115,22 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "ufi-forgejo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784839121,
+        "narHash": "sha256-wOfB4jcwfsTLFHuJjRWRL9nYCumbwnvxhdvwQlAxzyA=",
+        "ref": "refs/heads/main",
+        "rev": "b48da4d6dcedf76d1cc57472198f8d9b99938322",
+        "revCount": 157,
+        "type": "git",
+        "url": "https://codeberg.org/srd424/update-flake-inputs-forgejo.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/srd424/update-flake-inputs-forgejo.git"
       }
     }
   },

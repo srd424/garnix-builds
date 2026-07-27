@@ -12,12 +12,18 @@
       url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
       inputs.nixpkgs.follows = "nixpkgs2511";
     };
+    ufi-forgejo = {
+      url = "git+https://codeberg.org/srd424/update-flake-inputs-forgejo.git";
+      flake = false;
+    };
   };
 
-  outputs = { self, sboot-srvr, ssh-agent-switcher, ... }:
+  outputs = { self, sboot-srvr, ssh-agent-switcher, ufi-forgejo, ... }:
     {
       packages.x86_64-linux.ssh-agent-switcher = ssh-agent-switcher.packages.x86_64-linux.default;
       packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
+      packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
+
 
       hydraJobs =
         let
@@ -25,6 +31,7 @@
         in {
           ssh-agent-switcher = packages.x86_64-linux.ssh-agent-switcher;
           snowboot = packages.x86_64-linux.snowboot;
+          update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
         };
   };
 }

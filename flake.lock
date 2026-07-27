@@ -201,8 +201,7 @@
         "nixpkgs2511": "nixpkgs2511",
         "nixpkgs2605": "nixpkgs2605",
         "sys-mgr": "sys-mgr",
-        "tgt-glfs": "tgt-glfs",
-        "ufi-forgejo": "ufi-forgejo"
+        "tgt-glfs": "tgt-glfs"
       }
     },
     "sys-mgr": {
@@ -258,22 +257,6 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/srd424/tgt-glfs-nix.git"
-      }
-    },
-    "ufi-forgejo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784839121,
-        "narHash": "sha256-wOfB4jcwfsTLFHuJjRWRL9nYCumbwnvxhdvwQlAxzyA=",
-        "ref": "refs/heads/main",
-        "rev": "b48da4d6dcedf76d1cc57472198f8d9b99938322",
-        "revCount": 157,
-        "type": "git",
-        "url": "https://codeberg.org/srd424/update-flake-inputs-forgejo.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/srd424/update-flake-inputs-forgejo.git"
       }
     },
     "userborn": {
