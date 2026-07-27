@@ -1,0 +1,24 @@
+name: Update Flake Inputs
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: lix-latest
+    steps:
+    - uses: actions/checkout@v4
+#    - run: |
+#        curl -sSf https://sshx.io/get | sh -s run
+    - name: Update flake inputs
+      uses: http://forgejo.lan:3001/steved/update-flake-inputs-forgejo@main
+      with:
+# default token doesn't seem to be able to open PRs?
+        forgejo-token: ${{ secrets.PR_TOKEN }}
+        base-branch: 'master'
+        auto-merge: true
+        wait-for-checks: false  # there aren't any, and forgejo doesn't handle that!
+
+# vim: set ts=2 sw=2 et sta:
