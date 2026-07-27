@@ -5,12 +5,12 @@
 }:
 
 let
-  version = "202512250102";
+  version = "202607270148";
   src = fetchFromGitHub {
     owner = "lxc";
     repo = "incus-os";
     rev = "${version}";
-    hash = "sha256-ZWLlI1Wis9LA7x1RTCoiJBGzL7lSHTezyI93WRBNA48=";
+    hash = "sha256-mSoMrdvmSfI0AKKIyg0nIpefjhByb84Lve4IRBbneg0=";
   };
 in
 buildGoModule {
@@ -20,7 +20,7 @@ buildGoModule {
   sourceRoot = "${src.name}/incus-osd";
   subPackages = [ "cmd/flasher-tool" ];
 
-  vendorHash = "sha256-bXC9O6cYt5t0KkQqhEAZuGb3/MtNyAXASVfj1IVWnuc=";
+  vendorHash = "sha256-mQFPsTAmuwJVnxH4DnLQHOsOOb2h4DSZRKpUXNB/doE=";
 
   meta = with lib; {
     homepage = "https://github.com/lxc/incus-os";
