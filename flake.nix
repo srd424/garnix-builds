@@ -22,7 +22,6 @@
       # don't set nixpkgs input to follow a stable branch, system-manager
       # does not reliably support this: https://github.com/numtide/system-manager/issues/490
     };
-    # sys-mgr is now in nixpkgs
     forgejo-runner-fix = {
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
       inputs.nixpkgs.follows = "nixpkgs2511";
@@ -31,15 +30,11 @@
       url = "git+https://codeberg.org/srd424/update-flake-inputs-forgejo.git";
       flake = false;
     };
-    ssh-agent-switcher = {
-      url = "github:jmmv/ssh-agent-switcher?rev=9cf67475a143b70b5f5076eb1d3747cbac10220b";
-      inputs.nixpkgs.follows = "nixpkgs2605";
-    };
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
                 tgt-glfs, gpiod-dbus, sboot-srvr, ufi-forgejo,
-                ssh-agent-switcher,  sys-mgr, ... }: let
+                sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
 
@@ -52,8 +47,6 @@
       packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
 
       packages.x86_64-linux.tgt-glfs = tgt-glfs.packages.x86_64-linux.tgt;
-
-      packages.x86_64-linux.ssh-agent-switcher = ssh-agent-switcher.packages.x86_64-linux.default;
 
       packages.x86_64-linux.forgejo-runner = forgejo-runner-fix.packages.x86_64-linux.default;
 
@@ -105,7 +98,6 @@
           snowboot = packages.x86_64-linux.snowboot;
           update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
-          ssh-agent-switcher = packages.x86_64-linux.ssh-agent-switcher;
           forgejo-runner = packages.x86_64-linux.forgejo-runner;
           gnucash54 = packages.x86_64-linux.gnucash54;
           gnucash54-pymodule = packages.x86_64-linux.gnucash54-pymodule;
