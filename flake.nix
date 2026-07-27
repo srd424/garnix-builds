@@ -73,9 +73,9 @@
         });
 
       packages.x86_64-linux.incusos-flasher =
-            pkgs2511.callPackage ./incusos-flasher.nix {};
+            pkgs2605.callPackage ./incusos-flasher.nix {};
       packages.aarch64-linux.incusos-flasher =
-        nixpkgs2511.legacyPackages.aarch64-linux.callPackage ./incusos-flasher.nix {};
+        nixpkgs2605.legacyPackages.aarch64-linux.callPackage ./incusos-flasher.nix {};
 
       hydraJobs =
         let
