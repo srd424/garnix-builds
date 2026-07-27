@@ -24,10 +24,9 @@
     };
   };
 
-  outputs = { self, nixpkgs2305, nixpkgs2511, nixpkgs2605,
+  outputs = { self, nixpkgs2305, nixpkgs2605,
                 forgejo-runner-fix, tgt-glfs, gpiod-dbus, sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
-      pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
       pkgs2605 = nixpkgs2605.legacyPackages.x86_64-linux;
 
     in {
