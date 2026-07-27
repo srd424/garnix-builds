@@ -13,10 +13,6 @@
       url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
       inputs.nixpkgs.follows = "nixpkgs2511";
     };
-    sboot-srvr = {
-      url = "git+https://codeberg.org/srd424/snowboot-server.git?ref=hydra-notls";
-      inputs.nixpkgs.follows = "nixpkgs2511";
-    };
     sys-mgr = {
       url = "github:numtide/system-manager";
       # don't set nixpkgs input to follow a stable branch, system-manager
@@ -33,7 +29,7 @@
   };
 
   outputs = { self, nixpkgs2305, nixpkgs2511, forgejo-runner-fix,
-                tgt-glfs, gpiod-dbus, sboot-srvr, ufi-forgejo,
+                tgt-glfs, gpiod-dbus, ufi-forgejo,
                 sys-mgr, ... }: let
       pkgs2305 = nixpkgs2305.legacyPackages.x86_64-linux;
       pkgs2511 = nixpkgs2511.legacyPackages.x86_64-linux;
@@ -41,8 +37,6 @@
     in {
       packages.aarch64-linux.libgpiod = gpiod-dbus.packages.aarch64-linux.libgpiod;
       packages.x86_64-linux.libgpiod = gpiod-dbus.packages.x86_64-linux.libgpiod;
-
-      packages.x86_64-linux.snowboot = sboot-srvr.packages.x86_64-linux.package;
 
       packages.x86_64-linux.update-flake-inputs-forgejo = ((import ufi-forgejo) { system = "x86_64-linux"; });
 
@@ -95,7 +89,6 @@
         in {
           libgpiod-x64 = packages.x86_64-linux.libgpiod;
           # TODO: build arm version one day
-          snowboot = packages.x86_64-linux.snowboot;
           update-flake-inputs-forgejo = packages.x86_64-linux.update-flake-inputs-forgejo;
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
           forgejo-runner = packages.x86_64-linux.forgejo-runner;
