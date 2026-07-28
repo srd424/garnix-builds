@@ -84,7 +84,7 @@
     "gpiod-dbus": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs2511"
+          "nixpkgs2605"
         ]
       },
       "locked": {

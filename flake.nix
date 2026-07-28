@@ -11,7 +11,7 @@
     };
     gpiod-dbus = {
       url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs2511";
+      inputs.nixpkgs.follows = "nixpkgs2605";
     };
     sys-mgr = {
       url = "github:numtide/system-manager";
