@@ -81,7 +81,7 @@
           packages = self.outputs.packages;
         in {
           libgpiod-x64 = packages.x86_64-linux.libgpiod;
-          # TODO: build arm version one day
+          libgpiod-aarch64 = packages.aarch64-linux.libgpiod;
           tgt-glfs = packages.x86_64-linux.tgt-glfs;
           forgejo-runner = packages.x86_64-linux.forgejo-runner;
           gnucash54 = packages.x86_64-linux.gnucash54;
