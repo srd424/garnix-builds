@@ -7,7 +7,7 @@
     nixpkgs2605.url = "github:nixos/nixpkgs/nixos-26.05";
     tgt-glfs = {
       url = "git+https://codeberg.org/srd424/tgt-glfs-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs2511";
+      inputs.nixpkgs.follows = "nixpkgs2605";
     };
     gpiod-dbus = {
       url = "git+https://codeberg.org/srd424/libgpiod-nix.git";
@@ -20,7 +20,7 @@
     };
     forgejo-runner-fix = {
       url = "git+https://codeberg.org/srd424/forgejo-runner-fix";
-      inputs.nixpkgs.follows = "nixpkgs2511";
+      inputs.nixpkgs.follows = "nixpkgs2605";
     };
   };
 

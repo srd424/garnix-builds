@@ -41,7 +41,7 @@
     "forgejo-runner-fix": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs2511"
+          "nixpkgs2605"
         ]
       },
       "locked": {
@@ -242,7 +242,7 @@
     "tgt-glfs": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs2511"
+          "nixpkgs2605"
         ]
       },
       "locked": {
