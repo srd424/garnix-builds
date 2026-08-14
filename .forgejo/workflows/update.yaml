@@ -17,7 +17,7 @@ jobs:
       with:
 # default token doesn't seem to be able to open PRs?
         forgejo-token: ${{ secrets.PR_TOKEN }}
-        base-branch: 'master'
+        base-branch: 'main'
         auto-merge: true
         wait-for-checks: false  # there aren't any, and forgejo doesn't handle that!
         exclude-patterns: 'old/flake.nix'
