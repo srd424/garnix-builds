@@ -20,5 +20,6 @@ jobs:
         base-branch: 'master'
         auto-merge: true
         wait-for-checks: false  # there aren't any, and forgejo doesn't handle that!
+        exclude-patterns: 'old/flake.nix'
 
 # vim: set ts=2 sw=2 et sta:
